@@ -2,16 +2,7 @@
 melon_cost = 1.00
 
 def txt_to_db(file):
-    """transforms text to db
-
-    # <sample data structure used>
-    # db =[{'name':'Joe','amount': 5, 'paid': 5.00},
-    #      {'name':'Frank','amount': 6, 'paid': 6.00},
-    #      {'name':'Sally','amount': 3, 'paid': 3.00},
-    #      {'name':'Sean','amount': 9, 'paid': 9.50},
-    #      {'name':'David','amount': 4, 'paid': 4.00},
-    #      {'name':'Ashley','amount': 3, 'paid': 2.00}]
-    """
+    """transforms text to db"""
 
     the_file = open(file)
     db = []
