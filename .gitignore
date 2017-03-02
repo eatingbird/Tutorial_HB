@@ -1,0 +1,8 @@
+env
+*.pyc
+*secret*
+.DS_Store
+solution
+Vagrantfile
+.git
+.vagrant
