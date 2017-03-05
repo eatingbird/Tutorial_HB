@@ -32,7 +32,7 @@ def without_duplicates(words):
         [2, 33333, 111111]
     """
 
-    return []
+    return list(set(words))
 
 
 def find_unique_common_items(items1, items2):
@@ -62,7 +62,8 @@ def find_unique_common_items(items1, items2):
         [2]
     """
 
-    return []
+    return  list(set(items1) & set(items2))
+
 
 def get_sum_zero_pairs(numbers):
     """Given list of numbers, return list of pairs summing to 0.
@@ -91,7 +92,11 @@ def get_sum_zero_pairs(numbers):
         [[-1, 1], [0, 0]]
     """
 
-    return []
+    # a list of positives that have counter part negatives in input
+    result = [abs(i) for i in numbers if -i in numbers]
+
+    # "set" the result to delete duplicates and sort to match doctest
+    return sorted([[-x, x] for x in set(result)])
 
 
 def top_chars(phrase):
@@ -119,7 +124,15 @@ def top_chars(phrase):
 
     """
 
-    return []
+    letter_cnt = {}
+    letters = [x.lower() for x in ''.join(phrase.split())]
+
+    for i in letters:
+        letter_cnt[i] = letter_cnt.setdefault(i, 0) + 1
+
+    return sorted([key for key, val in letter_cnt.iteritems()\
+                  if val == max(letter_cnt.values())])
+
 
 #####################################################################
 # You can ignore everything below this.
