@@ -42,17 +42,32 @@ Part 1: Discussion
 # Parts 2 through 5:
 # Create your classes and class methods
 
+# two classes and two methods added
 class AbstractHousehold(object): # Parent (super class)
+    """ An abstract parent class of all households """
 
-    has_blood = True # parent class attribute
+    alive = True # parent class attribute
 
     def __init__(self): # parnet class method that initializes child class attribute
-      self.alive = True
-      print "I am a %s" %self.type
+        self.added_to_household = True
+        print "Type print from parent init, att in child: %s" %self.type_of
 
 class Human(AbstractHousehold):
-    type = "human" # Child class attribute
-      
+    """A class that defines human household members"""
 
-myself = Human() # when the initiation occurs, the type is set to human 
-print myself.alive # accessing inherited attribute
+    type_of = "human" # Child class attribute
+
+    def __init__(self, name):
+      self.name = name
+      print "Name from child init input: %s" %self.name
+      print "Status_alive from parent attribute:", self.alive
+      print self.num_legs(2)
+      return super(Human, self).__init__()
+      
+    def num_legs(self, number):
+      return "Num leg inside child module: %s" %number
+
+print
+myself = Human("Morine") # when the initiation occurs, the type is set to human
+print "Parent init accessible from instance: %s" %myself.added_to_household # check if init super is in the instance
+print
