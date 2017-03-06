@@ -39,8 +39,20 @@ Part 1: Discussion
    the attribute of "warm blood"
 """
 
-
 # Parts 2 through 5:
 # Create your classes and class methods
 
+class AbstractHousehold(object): # Parent (super class)
 
+    has_blood = True # parent class attribute
+
+    def __init__(self): # parnet class method that initializes child class attribute
+      self.alive = True
+      print "I am a %s" %self.type
+
+class Human(AbstractHousehold):
+    type = "human" # Child class attribute
+      
+
+myself = Human() # when the initiation occurs, the type is set to human 
+print myself.alive # accessing inherited attribute
